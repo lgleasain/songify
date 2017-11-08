@@ -8,13 +8,6 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
-/**
- * Created by Lance Gleason on 10/27/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 @Singleton
 @Component(
         modules = {ListTagsActivityModule.class, MockApiModule.class})

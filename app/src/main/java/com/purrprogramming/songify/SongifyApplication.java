@@ -10,13 +10,6 @@ import javax.inject.Inject;
 import okhttp3.mockwebserver.Dispatcher;
 import okhttp3.mockwebserver.MockWebServer;
 
-/**
- * Created by Lance Gleason on 10/27/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public class SongifyApplication extends Application {
 
     MockAppComponent appComponent;

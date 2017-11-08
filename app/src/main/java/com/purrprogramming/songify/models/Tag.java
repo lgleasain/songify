@@ -2,13 +2,6 @@ package com.purrprogramming.songify.models;
 
 import java.io.Serializable;
 
-/**
- * Created by Lance Gleason on 10/23/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public class Tag implements Serializable {
 
     private int id;

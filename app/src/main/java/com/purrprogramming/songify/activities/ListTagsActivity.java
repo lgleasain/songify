@@ -6,7 +6,6 @@ import android.databinding.Observable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 
 import com.purrprogramming.songify.R;
@@ -20,14 +19,7 @@ import com.purrprogramming.songify.viewmodels.TagsViewModel;
 
 import javax.inject.Inject;
 
-/**
- * Created by Lance Gleason on 10/27/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
-public class ListTagsActivity extends AppCompatActivity {
+public class ListTagsActivity extends BaseActivity {
 
     @Inject
     ViewModelFactory viewModelFactory;
@@ -38,10 +30,12 @@ public class ListTagsActivity extends AppCompatActivity {
 
     private TagsAdapter tagsAdapter;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // for espresso tests
+        setupIdlingResource();
+
         activityListTagsBinding = DataBindingUtil.setContentView(this, R.layout.activity_list_tags);
         ListTagsActivityComponent listTagsActivityComponent = DaggerListTagsActivityComponent.builder()
                 .mockApiModule(new MockApiModule())
@@ -59,6 +53,9 @@ public class ListTagsActivity extends AppCompatActivity {
                     });
                 }
         );
+
+        String title = getString(R.string.app_name) + " - " + getString(R.string.tags);
+        getSupportActionBar().setTitle(title);
     }
 
     private void subscribeToDataChanges() {
@@ -66,6 +63,10 @@ public class ListTagsActivity extends AppCompatActivity {
             @Override
             public void onPropertyChanged(Observable observable, int i) {
                 tagsAdapter.setTags(tagsViewModel.tags.get());
+
+                // for espresso tests
+                idlingResource.setIdleState(true);
+                // end espresso
             }
         });
     }
@@ -73,7 +74,7 @@ public class ListTagsActivity extends AppCompatActivity {
     private void createRecyclerAdapter() {
         LinearLayoutManager recyclerViewLinearLayoutManager = new LinearLayoutManager(this);
         activityListTagsBinding.tagsRecyclerView.setLayoutManager(recyclerViewLinearLayoutManager);
-        tagsAdapter = new TagsAdapter(tagsViewModel.tags.get());
+        tagsAdapter = new TagsAdapter(tagsViewModel.tags.get(), this);
         activityListTagsBinding.tagsRecyclerView.setAdapter(tagsAdapter);
     }
 

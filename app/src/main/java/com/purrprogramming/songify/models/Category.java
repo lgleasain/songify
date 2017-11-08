@@ -4,13 +4,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 
-/**
- * Created by Lance Gleason on 10/23/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public class Category {
 
     private String id;

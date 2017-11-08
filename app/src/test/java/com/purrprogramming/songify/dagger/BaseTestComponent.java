@@ -9,13 +9,6 @@ import javax.inject.Singleton;
 
 import dagger.Component;
 
-/**
- * Created by Lance Gleason on 10/28/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 @Singleton
 @Component(modules = {MockApiModule.class})
 public interface BaseTestComponent {

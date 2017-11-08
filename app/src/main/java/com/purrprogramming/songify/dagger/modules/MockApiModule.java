@@ -14,12 +14,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.mockwebserver.Dispatcher;
 import okhttp3.mockwebserver.MockWebServer;
 
-/**
- * Created by Lance Gleason on 10/28/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
 @Module
 public class MockApiModule extends ApiModule {
     @Override

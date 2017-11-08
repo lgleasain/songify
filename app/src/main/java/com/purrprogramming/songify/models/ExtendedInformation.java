@@ -2,13 +2,6 @@ package com.purrprogramming.songify.models;
 
 import com.google.gson.annotations.SerializedName;
 
-/**
- * Created by Lance Gleason on 10/23/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public class ExtendedInformation {
 
     int id;

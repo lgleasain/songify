@@ -4,6 +4,8 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven {url 'https://maven.google.com'}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
@@ -38,5 +40,9 @@ ext {
     rxjava2Version = '2.1.5'
     rxandroidVersion = '2.0.1'
 
-    archLifecycleVersion = "1.0.0-rc1"
+    glideVersion = '4.3.0'
+
+    archLifecycleVersion = '1.0.0'
+
+    espressoVersion = '3.0.1'
 }

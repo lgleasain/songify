@@ -13,13 +13,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.schedulers.ExecutorScheduler;
 import io.reactivex.plugins.RxJavaPlugins;
 
-/**
- * Created by Lance Gleason on 10/29/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public class RxImmediateSchedulerRule implements TestRule {
 
     private final Scheduler immediate = new Scheduler() {

@@ -11,13 +11,6 @@ import java.util.ArrayList;
 
 import static junit.framework.Assert.assertEquals;
 
-/**
- * Created by Lance Gleason on 10/29/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public class TagsViewModelTest extends BaseTest {
 
     @ClassRule
@@ -49,7 +42,7 @@ public class TagsViewModelTest extends BaseTest {
         Tag firstItem = tags.get(0);
         Tag lastItem = tags.get(11);
 
-        assertEquals( "Rush", firstItem.getTitle());
+        assertEquals( "Karen Zoid", firstItem.getTitle());
         assertEquals("The Police", lastItem.getTitle());
     }
 }

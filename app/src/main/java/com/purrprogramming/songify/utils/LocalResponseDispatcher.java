@@ -10,26 +10,24 @@ import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.QueueDispatcher;
 import okhttp3.mockwebserver.RecordedRequest;
 
-/**
- * Created by Lance Gleason on 10/28/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public class LocalResponseDispatcher extends QueueDispatcher {
 
     @Override
     public MockResponse dispatch(RecordedRequest request) throws InterruptedException {
         MockResponse mockResponse = new MockResponse();
-        String scenario = getScenario(request);
-        if (scenario != null) {
-            try {
-                mockResponse.setBody(readFile(scenario));
-                mockResponse.setResponseCode(200);
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            String scenario = getScenario(request);
+            if (scenario != null) {
+                try {
+                    mockResponse.setBody(readFile(scenario));
+                    mockResponse.setResponseCode(200);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+        } catch (NullPointerException e) {
+            mockResponse.setResponseCode(404);
+            mockResponse.setBody("not found");
         }
         return mockResponse;
     }
@@ -56,7 +54,7 @@ public class LocalResponseDispatcher extends QueueDispatcher {
         try {
             isr = new InputStreamReader(inputStream);
             BufferedReader rdr = new BufferedReader(isr);
-            for (int c; (c = rdr.read()) != -1;) {
+            for (int c; (c = rdr.read()) != -1; ) {
                 sb.append((char) c);
 
             }

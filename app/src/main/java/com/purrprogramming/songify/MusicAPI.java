@@ -11,13 +11,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
-/**
- * Created by Lance Gleason on 10/26/17 of Polyglot Programming LLC.
- * Web: http://www.polygotprogramminginc.com
- * Twitter: @lgleasain
- * Github: @lgleasain
- */
-
 public interface MusicAPI {
     @GET("/api/1/tags")
     Observable<ArrayList<Tag>> getTags();
@@ -26,5 +19,5 @@ public interface MusicAPI {
     Observable<ArrayList<Category>> getCategory(@Path("tagId") String id);
 
     @GET("/api/1/songs/multi")
-    Observable<ArrayList<ExtendedInformation>> getMultiSongs(@Query(value="id", encoded = true) ArrayList<String> ids);
+    Observable<ArrayList<ExtendedInformation>> getMultiSongs(@Query(value="id", encoded = true) ArrayList<Integer> ids);
 }
